@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michael's Ultimate Boyfriend Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #5a2a83;
+      margin-bottom: 1rem;
+    }
+    .quiz-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+    }
+    .quiz-card.active {
+      display: flex;
+    }
+    button.answer-btn {
+      background-color: #6a3fb5;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    button.answer-btn:hover {
+      background-color: #4e2d80;
+    }
+    #final-message {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: #c12f2f;
+    }
+    #prove-btn {
+      background-color: #d63333;
+      padding: 14px 28px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #prove-btn:hover {
+      background-color: #a82828;
+    }
+    #rickroll-video {
+      margin-top: 2rem;
+      display: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>Michael's Ultimate Boyfriend Quiz</h1>
+
+  <div class="quiz-card active" id="q1">
+    <p>What’s Michael’s go-to coffee?</p>
+    <button class="answer-btn" onclick="nextQuestion('q1', 'q2')">Black espresso, no sugar</button>
+    <button class="answer-btn" onclick="nextQuestion('q1', 'q2')">Cappuccino with extra foam</button>
+    <button class="answer-btn" onclick="nextQuestion('q1', 'q2')">Latte with caramel</button>
+  </div>
+
+  <div class="quiz-card" id="q2">
+    <p>Where is Michael’s boat docked?</p>
+    <button class="answer-btn" onclick="nextQuestion('q2', 'q3')">D'Albora Marina, Rushcutters Bay</button>
+    <button class="answer-btn" onclick="nextQuestion('q2', 'q3')">Sydney Harbour</button>
+    <button class="answer-btn" onclick="nextQuestion('q2', 'q3')">Bondi Beach</button>
+  </div>
+
+  <div class="quiz-card" id="q3">
+    <p>Which sport does Michael work out in?</p>
+    <button class="answer-btn" onclick="nextQuestion('q3', 'q4')">Gym workouts</button>
+    <button class="answer-btn" onclick="nextQuestion('q3', 'q4')">Tennis and badminton</button>
+    <button class="answer-btn" onclick="nextQuestion('q3', 'q4')">Breakdancing</button>
+  </div>
+
+  <div class="quiz-card" id="q4">
+    <p>What’s Michael’s dream business?</p>
+    <button class="answer-btn" onclick="nextQuestion('q4', 'q5')">Morale sports brand</button>
+    <button class="answer-btn" onclick="nextQuestion('q4', 'q5')">Real estate empire</button>
+    <button class="answer-btn" onclick="nextQuestion('q4', 'q5')">Gold investment firm</button>
+  </div>
+
+  <div class="quiz-card" id="q5">
+    <p>What’s Michael’s favorite kind of humor?</p>
+    <button class="answer-btn" onclick="showFail()">Dark humor, all day</button>
+    <button class="answer-btn" onclick="showFail()">Classic jokes</button>
+    <button class="answer-btn" onclick="showFail()">Puns and dad jokes</button>
+  </div>
+
+  <div class="quiz-card" id="fail-screen" style="display:none; flex-direction: column; align-items: center;">
+    <div id="final-message">😢 Sorry Michael, you failed the Boyfriend Olympics!</div>
+    <button id="prove-btn" onclick="showRickroll()">Prove it</button>
+  </div>
+
+  <iframe id="rickroll-video" width="560" height="315" 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+  </iframe>
+
+  <script>
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'flex';
+    }
+
+    function showFail() {
+      // Hide last question and show fail screen
+      const lastQuestion = document.querySelector('.quiz-card.active');
+      if (lastQuestion) lastQuestion.style.display = 'none';
+
+      document.getElementById('fail-screen').style.display = 'flex';
+    }
+
+    function showRickroll() {
+      document.getElementById('fail-screen').style.display = 'none';
+      const video = document.getElementById('rickroll-video');
+      video.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
