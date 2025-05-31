@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boyfriend Olympics 2025</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe4e1, #e0ffff);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 2em;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #d2691e;
+    }
+    .question-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5em;
+      margin: 1em auto;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .question-card.active {
+      display: block;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+    .result {
+      display: none;
+      margin-top: 2em;
+    }
+    .trophy {
+      font-size: 3em;
+    }
+    .video-container {
+      display: none;
+      margin-top: 2em;
+    }
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎖️ Boyfriend Olympics 2025 🎖️</h1>
+  <p>Welcome, Michael. You’ve been randomly selected by the <em>International Committee of Loving Girlfriends</em> to compete for greatness.</p>
+
+  <div class="question-card active">
+    <h2>🧠 Event 1: Logic vs Love</h2>
+    <p>You’re planning a spontaneous weekend with Maryam. What’s the move?</p>
+    <button onclick="nextQuestion()">A) Boat ride + surprise picnic + espresso</button>
+    <button onclick="nextQuestion()">B) Gym sesh + stock update + burger</button>
+    <button onclick="nextQuestion()">C) Badminton + breakdance lessons</button>
+    <button onclick="nextQuestion()">D) All of the above, obviously.</button>
+  </div>
+
+  <div class="question-card">
+    <h2>🍔 Event 2: Nutrition Challenge</h2>
+    <p>Maryam says: “Surprise me with a burger order!” What’s your power move?</p>
+    <button onclick="nextQuestion()">Cheesy + extra sarcasm + fries</button>
+    <button onclick="nextQuestion()">Just protein like a gym bro</button>
+    <button onclick="nextQuestion()">Coffee + burger (unholy combo)</button>
+    <button onclick="nextQuestion()">Gold-flaked wagyu burger</button>
+  </div>
+
+  <div class="question-card">
+    <h2>☕ Event 3: Coffee Compatibility</h2>
+    <p>Match the drink to the person:</p>
+    <button onclick="nextQuestion()">Espresso → You | Cappuccino → Maryam</button>
+    <button onclick="nextQuestion()">Espresso → Maryam | Cappuccino → You</button>
+    <button onclick="nextQuestion()">Both drink protein shakes only</button>
+    <button onclick="nextQuestion()">Wrong. It’s just gold smoothies.</button>
+  </div>
+
+  <div class="question-card">
+    <h2>💃 Event 4: Dance-Off Redemption</h2>
+    <p>You used to breakdance. She dances every genre. What’s your comeback move?</p>
+    <button onclick="showVideo()">Prove it 🕺</button>
+  </div>
+
+  <div class="question-card">
+    <h2>📈 Final Round: Finance or Feelings?</h2>
+    <p>XRP crashes. Maryam sends a TikTok that says “we ball regardless.” What do you do?</p>
+    <button onclick="showResult()">“Fair. Still hedging emotionally.”</button>
+    <button onclick="showResult()">“Gold never disappoints.”</button>
+    <button onclick="showResult()">“Buying the dip, then burgers?”</button>
+    <button onclick="showResult()">“This is why I don’t drink beer.”</button>
+  </div>
+
+  <div class="result" id="result">
+    <h2 class="trophy">🏆 Certified Bougie Boyfriend of the Year 🏆</h2>
+    <p>Michael, MBA, Espresso Gold Standard.<br>You have won: One kiss from Maryam (redeemable on boat or badminton court).</p>
+  </div>
+
+  <div class="video-container" id="rickroll">
+    <h2>😈 Gotcha.</h2>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    let currentQuestion = 0;
+    const questions = document.querySelectorAll('.question-card');
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        questions[currentQuestion].classList.remove('active');
+        currentQuestion++;
+        questions[currentQuestion].classList.add('active');
+      }
+    }
+
+    function showResult() {
+      questions[currentQuestion].classList.remove('active');
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function showVideo() {
+      questions[currentQuestion].classList.remove('active');
+      document.getElementById('rickroll').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
